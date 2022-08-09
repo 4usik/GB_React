@@ -1,14 +1,17 @@
+import React from 'react';
 import './App.css';
+import { Fruit } from './components/Fruit';
 import { Message } from './components/Message';
 
-function App(props) {
-  const done = 'done!';
+function App() {
+  
   return (
     <div className="App">
       <header className="App-header">
         My First React App
-        <h3>Hello! { props.name }!</h3>
-        <Message name={ done }></Message>
+
+        <Message name="Tatiana" status="done!"></Message>
+        <Fruit></Fruit>
       </header>
     </div>
   );
