@@ -1,20 +1,26 @@
 import React from "react";
 import { useState } from "react";
+import { MessagesList } from "./MessagesList";
 
 function useInput(defaultValue) {
     const [value, setValue] = useState(defaultValue);
 
     function onChange(e) {
-        setValue(e.target.value);
+        setValue(e.target.value);;
+    }
+
+    function reset(){
+        setValue('');
     }
 
     return {
         value,
-        onChange
+        onChange,
+        reset
     };
 }
 
-export function Form(props) {
+export function Form() {
     const inputProps = useInput();
     const textareaProps = useInput();
 
@@ -24,6 +30,12 @@ export function Form(props) {
         messages.push(message)
         setMessages(messages);
         console.log(messages);
+        return messages;
+    }
+
+    function resetFormFields() {
+        inputProps.reset();
+        textareaProps.reset();
     }
 
     const handleChange = (event) => {
@@ -32,11 +44,12 @@ export function Form(props) {
             autor: inputProps.value,
             text: textareaProps.value
         });
-       
+        resetFormFields();
     }
 
     return (
-    <form>
+    <form onSubmit={handleChange}>
+        <MessagesList messages={messages} />
         <div>
             <label>Имя:</label>
             <input className="input" placeholder="Введите Ваше имя" {...inputProps}></input>
@@ -44,6 +57,6 @@ export function Form(props) {
         
         <textarea className="textarea" placeholder="Введите сообщение" {...textareaProps}></textarea>
 
-        <button type="submit" className="submit" onClick={handleChange}>ОТПРАВИТЬ</button>
+        <button type="submit" className="submit">ОТПРАВИТЬ</button>
     </form>)
 }
