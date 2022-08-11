@@ -1,6 +1,5 @@
 import React from 'react';
 import '../style.css';
-import { Form } from './Form';
 
 export function Message(props) {
 

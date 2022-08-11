@@ -1,8 +1,8 @@
-import { useState } from "react";
+import { useStatem, useEffect } from "react";
 
 export function MessagesList(props) {
-
-    return props.messages.map((message) => <div>{'Сообщение от '+ message.autor + ': ' + message.text}</div>);
+    return props.messages.map((message) => 
+    <div className="message">{'Сообщение от '+ message.autor + ': ' + message.text}</div>);
 }
 
 
