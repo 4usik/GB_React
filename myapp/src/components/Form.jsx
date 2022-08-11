@@ -1,19 +1,16 @@
 import React from "react";
 
 export function Form(props) {
+    const {inputProps, textareaProps, addMessage} = props;
+
+    function resetFormFields() { // Очищаем форму
+        inputProps.reset();
+        textareaProps.reset();
+    }
 
     const handleChange = (event) => { // Обработчик отправки формы
         event.preventDefault();
-        const {inputProps, textareaProps, updateArr, resetFormFields} = props;
-        
-        if(inputProps.value && textareaProps.value) {
-            updateArr({
-                autor: inputProps.value,
-                text: textareaProps.value
-            });
-        } else {
-            console.log('Не заполнено поле ввода');
-        }
+        addMessage();
         resetFormFields();
     }
 
