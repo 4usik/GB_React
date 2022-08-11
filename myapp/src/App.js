@@ -2,8 +2,7 @@ import React from 'react';
 import './App.css';
 import { Fruit } from './components/Fruit';
 import { Message } from './components/Message';
-import { Form } from './components/Form';
-import { MessagesList } from './components/MessagesList';
+import { RenderPage } from './components/RenderPage';
 
 function App() {
   
@@ -15,8 +14,7 @@ function App() {
 
         {/* <Message name="Tatiana" status="done!"></Message> */}
         {/* <Fruit></Fruit> */}
-        <Form />
-        {/* <MessagesList /> */}
+        <RenderPage />
   
       </header>
     </div>
