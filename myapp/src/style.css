@@ -1,27 +1,32 @@
-.done {
-    color: #81117d;
+
+.message {
+    border: 2px solid white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+    width: 50%;
 }
 
-.btn {
-    background-color:#90214d;
-    border: none;
-    border-radius: 15px;
-    padding: 25px;
-    font-size: 25px;
-    color: white;
+.user {
+    align-items: flex-end;
 }
 
-.content {
-    height: 90%;
-    min-width: 100%;
+.bot {
+    border-color: #1976d2;
+    color: #1976d2;
+    align-items: flex-start;
 }
 
-.messageList {
-    position: absolute;
+.messagesList {
+    min-width: 30%;
+    min-height: 30%;
     padding-top: 90px;
     padding-left: 300px;
-    left: 0;
+    position: absolute;
     top: 0;
+    right: 0;
 }
 
 .chatlist {
@@ -33,12 +38,7 @@
     text-align: left;
 }
 
-.message {
-    text-align: left;
-    padding-bottom: 15px;
-}
-
-form {
+.form {
     position: absolute;
     display: flex;
     flex-direction: column;
@@ -49,26 +49,12 @@ form {
     right: 0;
 }
 
-.textarea {
-    margin-top: 15px;
-    width: 700px;
-    min-height: 100px;
-    font-size: 20px;
-    color: white;
-}
-
 .input {
-    margin-top: 15px;
-    margin-left: 25px;
-    width: 240px;
-    font-size: 25px;
+    margin-bottom: 15px;
+    width: 700px;
+    min-height: 50px;
+    font-size: 20px;
+    color: #1976d2;
+    border-radius: 5px;
 }
 
-.submit {
-    width: 25%;
-    margin-top: 20px;
-    padding: 10px;
-    font-size: 20px;
-    font-weight: bold;
-    color: blue;
-}

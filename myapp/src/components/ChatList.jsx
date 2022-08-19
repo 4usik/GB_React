@@ -15,20 +15,20 @@ export function ChatList() {
         name: 'study'}
     ];
 
-    return (chats.map((chat) =>
-            <Box sx={{ width: '100%', maxWidth: 360 }}>
+    return (<Box sx={{ width: '100%', maxWidth: 360, position: 'absolute', top: '70px', left: '20px' }}>
               <nav aria-label="main mailbox folders">
                 <List>
+                {chats.map((chat) =>
                   <ListItem disablePadding>
                     <ListItemButton>
                       <ListItemIcon sx={{ color: 'white' }}>
                       {chat.name}
                       </ListItemIcon>
                     </ListItemButton>
-                  </ListItem>
+                  </ListItem> )}
                 </List>
               </nav>
-            </Box>))
+            </Box>)
 }
 
 

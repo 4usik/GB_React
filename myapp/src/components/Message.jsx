@@ -1,12 +1,15 @@
 import React from 'react';
 import '../style.css';
+import { AUTHOR, BOT } from './constants';
 
-export function Message(props) {
+export const Message = ({ author, text }) => {
 
-    return <>
-        <h3>Hello! { props.name }!</h3>
-        <h1 className="done">This task: { props.status }</h1>
-    </>
-    
-    
+    const authorType = author === AUTHOR ? AUTHOR : BOT;
+
+    return (
+        <div className={ `message ${authorType}` }>
+            <span>{author}</span>
+            <span>{text}</span>
+        </div>
+    );
 }
