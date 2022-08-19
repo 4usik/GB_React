@@ -1,15 +1,27 @@
+.form {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    padding-bottom: 90px;
+    padding-right: 50px;
+    bottom: 0;
+    right: 0;
+}
 
 .message {
-    border: 2px solid white;
+    border: 2px solid;
     padding: 10px 20px;
     border-radius: 5px;
     display: flex;
     flex-direction: column;
-    margin-top: 20px;
-    width: 50%;
+    margin: 20px 60px;
+    min-width: 50%;
 }
 
 .user {
+    border-color: white;
+    color: white;
     align-items: flex-end;
 }
 
@@ -38,17 +50,6 @@
     text-align: left;
 }
 
-.form {
-    position: absolute;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    padding-bottom: 90px;
-    padding-right: 50px;
-    bottom: 0;
-    right: 0;
-}
-
 .input {
     margin-bottom: 15px;
     width: 700px;
@@ -58,3 +59,7 @@
     border-radius: 5px;
 }
 
+.link {
+    text-decoration: none;
+    color: inherit;
+}
