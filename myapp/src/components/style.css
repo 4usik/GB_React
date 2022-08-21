@@ -9,6 +9,16 @@
     right: 0;
 }
 
+.messagesList {
+    min-width: 30%;
+    min-height: 30%;
+    padding-top: 90px;
+    padding-left: 300px;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
 .message {
     border: 2px solid;
     padding: 10px 20px;
@@ -31,35 +41,17 @@
     align-items: flex-start;
 }
 
-.messagesList {
-    min-width: 30%;
-    min-height: 30%;
-    padding-top: 90px;
-    padding-left: 300px;
-    position: absolute;
-    top: 0;
-    right: 0;
-}
-
-.chatlist {
-    position: absolute;
-    padding-top: 30px;
-    padding-left: 30px;
-    left: 0;
-    top: 0;
-    text-align: left;
-}
-
-.input {
-    margin-bottom: 15px;
-    width: 700px;
-    min-height: 50px;
-    font-size: 20px;
-    color: #1976d2;
-    border-radius: 5px;
-}
-
 .link {
     text-decoration: none;
     color: inherit;
+}
+
+.chatName {
+    padding-top: 60px;
+    padding-right: 350px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    text-transform: uppercase;
+    text-decoration: underline;
 }

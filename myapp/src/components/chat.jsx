@@ -2,7 +2,7 @@ import React from 'react';
 import { useState, useEffect } from 'react';
 import { Messages } from './Messages';
 import { Form } from './Form';
-import { AUTHOR, BOT } from './constants';
+import { AUTHOR, BOT } from '../constants';
 
 let timer;
 
@@ -49,8 +49,8 @@ export function Chat(props) {
 
   return (
     <>
-          <span>{name}</span>
-          <Messages messagesList={messagesList} />
+          {/* <span>{name}</span> */}
+          <Messages messagesList={messagesList} name={name} />
           <Form onSendMessage={handleSendMessage}/>
     </>
   );

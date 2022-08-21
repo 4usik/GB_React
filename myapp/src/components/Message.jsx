@@ -1,6 +1,6 @@
 import React from 'react';
-import '../style.css';
-import { AUTHOR, BOT } from './constants';
+import '../components/style.css';
+import { AUTHOR, BOT } from '../constants';
 
 export const Message = ({ author, text }) => {
 
