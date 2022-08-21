@@ -1,34 +1,25 @@
 import React from "react";
-import Box from '@mui/material/Box';
-import List from '@mui/material/List';
-import ListItem from '@mui/material/ListItem';
-import ListItemButton from '@mui/material/ListItemButton';
-import ListItemIcon from '@mui/material/ListItemIcon';
+import { Link } from 'react-router-dom';
+import { Box, Button, List, ListItem } from '@mui/material';
+import '../components/style.css';
 
-export function ChatList() {
-    const chats = [
-        {id: 1,
-        name: 'family'},
-        {id: 2,
-        name: 'work'},
-        {id: 3,
-        name: 'study'}
-    ];
+export function ChatList(props) {
 
-    return (chats.map((chat) =>
-            <Box sx={{ width: '100%', maxWidth: 360 }}>
-              <nav aria-label="main mailbox folders">
-                <List>
-                  <ListItem disablePadding>
-                    <ListItemButton>
-                      <ListItemIcon sx={{ color: 'white' }}>
-                      {chat.name}
-                      </ListItemIcon>
-                    </ListItemButton>
-                  </ListItem>
-                </List>
-              </nav>
-            </Box>))
+  const { chats, addChat } = props;
+    
+  return (
+    <Box sx={{ maxWidth: 360, position: 'absolute', top: '70px', left: '20px' }}>
+      <nav aria-label="main mailbox folders">
+          <List>
+            {chats.map((chat) =>
+              <ListItem key={`${chat.id}`} sx={{ color: 'white', margin: '20px' }} disablePadding>
+                  <Link to={`/${chat.name}`} className='link'>{chat.name}</Link>
+              </ListItem>
+              )}
+          </List>
+          <Button onClick={ () => {addChat()} }>Add Chat</Button>
+      </nav>
+    </Box>)
 }
 
 

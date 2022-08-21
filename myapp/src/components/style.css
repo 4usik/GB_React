@@ -1,0 +1,57 @@
+.form {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    padding-bottom: 90px;
+    padding-right: 50px;
+    bottom: 0;
+    right: 0;
+}
+
+.messagesList {
+    min-width: 30%;
+    min-height: 30%;
+    padding-top: 90px;
+    padding-left: 300px;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.message {
+    border: 2px solid;
+    padding: 10px 20px;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    margin: 20px 60px;
+    min-width: 50%;
+}
+
+.user {
+    border-color: white;
+    color: white;
+    align-items: flex-end;
+}
+
+.bot {
+    border-color: #1976d2;
+    color: #1976d2;
+    align-items: flex-start;
+}
+
+.link {
+    text-decoration: none;
+    color: inherit;
+}
+
+.chatName {
+    padding-top: 60px;
+    padding-right: 350px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    text-transform: uppercase;
+    text-decoration: underline;
+}

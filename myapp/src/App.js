@@ -1,23 +1,28 @@
 import React from 'react';
 import './App.css';
-import { Fruit } from './components/Fruit';
-import { Message } from './components/Message';
-import { RenderPage } from './components/RenderPage';
+import {NavbarPanel} from './components/navbar';
+// import { ThemeProvider, useTheme, createTheme } from "@mui/material/styles";
+import { Box, CssBaseline } from '@mui/material';
+
+const makeAppStyles = (theme) => {
+  const { mode, background, grey } = theme.palette;
+
+  return {
+    background: mode === 'light' ? background.paper : grey[800],
+  }
+};
 
 function App() {
-  
-  return (
-    
-    <div className="App">
-      <header className="App-header">
-        {/* My First React App */}
 
-        {/* <Message name="Tatiana" status="done!"></Message> */}
-        {/* <Fruit></Fruit> */}
-        <RenderPage />
-  
-      </header>
-    </div>
+  return (
+    <>
+      <CssBaseline />
+      <Box sx={makeAppStyles}>
+        <div className="App">
+          <NavbarPanel />
+        </div>
+      </Box>
+    </>
   );
 }
 
