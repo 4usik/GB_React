@@ -17,7 +17,7 @@ export function ChatList(props) {
               </ListItem>
               )}
           </List>
-          <Button onClick={ () => {addChat()} }>Add Chat</Button>
+          <Button onClick={ addChat }>Add Chat</Button>
       </nav>
     </Box>)
 }
