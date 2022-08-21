@@ -13,7 +13,7 @@ export function ChatList(props) {
           <List>
             {chats.map((chat) =>
               <ListItem key={`${chat.id}`} sx={{ color: 'white', margin: '20px' }} disablePadding>
-                  <Link to={`/${chat.name}`} className='link'>{chat.name}{chat.id}</Link>
+                  <Link to={`/${chat.name}`} className='link'>{chat.name}</Link>
               </ListItem>
               )}
           </List>

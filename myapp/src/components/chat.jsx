@@ -49,7 +49,6 @@ export function Chat(props) {
 
   return (
     <>
-          {/* <span>{name}</span> */}
           <Messages messagesList={messagesList} name={name} />
           <Form onSendMessage={handleSendMessage}/>
     </>

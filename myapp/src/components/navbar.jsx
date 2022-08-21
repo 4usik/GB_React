@@ -12,16 +12,6 @@ import { PageNotFound } from '../pages/page-not-found';
 
 import { ColorModeSwitch } from './color-mode-switch';
 
-// const chats = [
-//   {
-//     id: 1,
-//     name: 'Chat',
-//     messages: []
-// }
-// ];
-
-
-
 export const NavbarPanel = () => {
 
   const [chatList, setChatList] = useState([]);
@@ -32,7 +22,7 @@ function addChat() {
     ...prevChatList,
     {
       id: prevChatList.length+1,
-      name: 'Chat',
+      name: `Chat`+ +(prevChatList.length+1),
       message: []
     }
   ]));
