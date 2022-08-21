@@ -55,3 +55,9 @@
     text-transform: uppercase;
     text-decoration: underline;
 }
+
+.checkbox {
+    margin-top: 50px;
+    width: 30px;
+    height: 30px;
+}

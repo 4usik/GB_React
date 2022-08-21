@@ -26,8 +26,6 @@ function addChat() {
       message: []
     }
   ]));
-
-  console.log(chatList);
 }
 
   return (

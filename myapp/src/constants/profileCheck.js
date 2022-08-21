@@ -1,0 +1,2 @@
+export const CHECKON_ACTION = 'CHECKON_ACTION';
+export const CHECKOFF_ACTION = 'CHECKOFF_ACTION';
