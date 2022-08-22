@@ -16,19 +16,17 @@ export const NavbarPanel = () => {
 
   const [chatList, setChatList] = useState([]);
 
-function addChat() {
+  function addChat() {
 
-  setChatList((prevChatList) => ([
-    ...prevChatList,
-    {
-      id: prevChatList.length+1,
-      name: `Chat`+ +(prevChatList.length+1),
-      message: []
-    }
-  ]));
-
-  console.log(chatList);
-}
+    setChatList((prevChatList) => ([
+      ...prevChatList,
+      {
+        id: prevChatList.length+1,
+        name: `Chat`+ +(prevChatList.length+1),
+        message: []
+      }
+    ]));
+  }
 
   return (
     <Box sx={{ flexGrow: 1, minWidth: '100%' }}>

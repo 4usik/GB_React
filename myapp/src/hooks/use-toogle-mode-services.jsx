@@ -5,7 +5,7 @@ export const useToggleModeServices = () => {
     const toggleMode = useContext(ColorModeServicesContext);
 
     if(toggleMode === undefined) {
-        console.log('Error');
+        // console.log('Error');
     //     throw new Error('You must use useToggleModeServices with ToggleColorModeServicesContext');
     }
 
