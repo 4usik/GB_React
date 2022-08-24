@@ -1,5 +1,4 @@
 import React from 'react';
-import { useState } from 'react';
 import {AppBar, Button, Box, IconButton, Toolbar, Typography } from '@mui/material';
 import { BrowserRouter, Link, Switch, Route } from 'react-router-dom';
 import '../components/style.css';
@@ -11,22 +10,11 @@ import ChatBubbleOutlineIcon from '@mui/icons-material/ChatBubbleOutline';
 import { PageNotFound } from '../pages/page-not-found';
 
 import { ColorModeSwitch } from './color-mode-switch';
+import { useSelector } from 'react-redux';
 
 export const NavbarPanel = () => {
 
-  const [chatList, setChatList] = useState([]);
-
-  function addChat() {
-
-    setChatList((prevChatList) => ([
-      ...prevChatList,
-      {
-        id: prevChatList.length+1,
-        name: `Chat`+ +(prevChatList.length+1),
-        message: []
-      }
-    ]));
-  }
+  const chatList = useSelector((state) => state.chats.chatList);
 
   return (
     <Box sx={{ flexGrow: 1, minWidth: '100%' }}>
@@ -54,7 +42,7 @@ export const NavbarPanel = () => {
 
             <Route exact path="/profile/" component={Profile} />
 
-            <Route exact path="/chats/" > <Chats chats={chatList} addChat={addChat} /> </Route>
+            <Route exact path="/chats/" > <Chats /> </Route>
 
             <Route exact path="/Chat/" component={Chat} />
 

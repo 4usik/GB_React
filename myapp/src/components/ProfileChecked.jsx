@@ -1,20 +1,20 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { CHECKON_ACTION, CHECKOFF_ACTION } from "../constants/profileCheck";
+import { checkOn, checkOff } from "../constants/profileCheck";
 
 export const CheckBox  = () => {
 
     const dispatch = useDispatch();
-    const checkOn = useSelector((state) => state.checkOn);
-    const text = useSelector((state) => state.text);
+    const checkBox = useSelector((state) => state.profile.checkBox);
+    const text = useSelector((state) => state.profile.text);
 
     const handleChange = () => {
-        checkOn ? dispatch({ type: CHECKOFF_ACTION}) : dispatch({ type: CHECKON_ACTION});
+        checkBox ? dispatch(checkOff) : dispatch(checkOn);
     };
 
     return (
         <>
-            <input type={'checkbox'} className="checkbox" checked={checkOn} value={checkOn} onChange={handleChange} />
+            <input type={'checkbox'} className="checkbox" checked={checkBox} value={checkBox} onChange={handleChange} />
             <div>{text}</div>
         </>
     )

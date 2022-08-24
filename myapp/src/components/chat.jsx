@@ -36,21 +36,10 @@ export function Chat(props) {
     
   }, [messagesList]);
 
-  const handleSendMessage = (msg) => {
-    setMessagesList((prevList) => ([
-      ...prevList,
-      {
-        author: AUTHOR,
-        text: msg,
-        id: prevList.length
-      }
-    ]));
-  }
-
   return (
     <>
           <Messages messagesList={messagesList} name={name} />
-          <Form onSendMessage={handleSendMessage}/>
+          <Form name={name} />
     </>
   );
 }
