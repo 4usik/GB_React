@@ -25,9 +25,9 @@ export function ChatList() {
       <nav aria-label="main mailbox folders">
           <List>
             {chats.map((chat) =>
-              <ListItem key={`${chat.id}`} id={`${chat.id}`} sx={{ color: 'white', margin: '20px' }} onClick={delChat} disablePadding>
+              <ListItem key={`${chat.id}`} sx={{ color: 'white', margin: '20px' }} disablePadding>
                   <Link to={`/${chat.name}`} className='link'>{chat.name+ '  '}</Link>
-                  <DeleteIcon sx={{marginLeft: '20px'}}/>
+                  <DeleteIcon sx={{marginLeft: '20px'}} id={`${chat.id}`} onClick={delChat}/>
               </ListItem>
               )}
           </List>
