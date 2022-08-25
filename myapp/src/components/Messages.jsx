@@ -5,17 +5,19 @@ import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { AUTHOR } from "../constants";
 import { addBotMessage } from "../constants/addMessage";
+import { getMessagesList } from "../store/selectors/messages"
 
 let timer;
 
 export const Messages = ({ name }) => {
-    
-    const messagesList = useSelector((state) => state.messages.messageList[name] || []);
+    const messagesList = useSelector(getMessagesList);
+    const chat = messagesList[name] || [];
     const dispatch = useDispatch();
+    
 
     useEffect(() => {
 
-        if(messagesList[messagesList.length-1]?.author === AUTHOR) {
+        if(chat[chat.length-1]?.author === AUTHOR) {
     
           clearTimeout(timer);
     
@@ -28,7 +30,7 @@ export const Messages = ({ name }) => {
           clearTimeout(timer);
         };
         
-      }, [messagesList]);
+      });
 
     return (
     <>
@@ -36,7 +38,7 @@ export const Messages = ({ name }) => {
         <div className="messagesList">
             <div className="chatName">{name}</div>
             {
-                messagesList.map((message) => <Message key={message.id} {...message} />)
+                chat.map((message) => <Message key={message.id} {...message} />)
             }
         </div>
     </>

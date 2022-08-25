@@ -8,13 +8,13 @@ import { Chats } from '../pages/chats-page';
 import { Chat } from './chat';
 import ChatBubbleOutlineIcon from '@mui/icons-material/ChatBubbleOutline';
 import { PageNotFound } from '../pages/page-not-found';
-
+import { getChatList } from '../store/selectors/chats';
 import { ColorModeSwitch } from './color-mode-switch';
 import { useSelector } from 'react-redux';
 
 export const NavbarPanel = () => {
 
-  const chatList = useSelector((state) => state.chats.chatList);
+  const chatList = useSelector(getChatList);
 
   return (
     <Box sx={{ flexGrow: 1, minWidth: '100%' }}>

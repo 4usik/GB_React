@@ -1,7 +1,7 @@
 import React from "react";
 import { useState, useRef, useEffect } from "react";
 import { TextField, Button } from '@mui/material/';
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { addMessage } from "../constants/addMessage";
 
 export const Form = (props) => {

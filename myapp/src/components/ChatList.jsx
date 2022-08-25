@@ -6,11 +6,11 @@ import '../components/style.css';
 import { useDispatch, useSelector } from "react-redux";
 import { addChat, deleteChat } from "../constants/addChat";
 import { deleteMessagesWithChat } from "../constants/addMessage";
+import { getChatList } from "../store/selectors/chats";
 
 export function ChatList() {
-
   const dispatch = useDispatch();
-  const chats = useSelector((state) => state.chats.chatList);
+  const chats = useSelector(getChatList);
 
   const handleChange = () => {
     dispatch(addChat());
