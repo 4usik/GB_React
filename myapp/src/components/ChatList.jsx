@@ -5,6 +5,7 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import '../components/style.css';
 import { useDispatch, useSelector } from "react-redux";
 import { addChat, deleteChat } from "../constants/addChat";
+import { deleteMessagesWithChat } from "../constants/addMessage";
 
 export function ChatList() {
 
@@ -18,6 +19,7 @@ export function ChatList() {
   const delChat = (e) => {
     const id = e.currentTarget.id;
     dispatch(deleteChat(id));
+    dispatch(deleteMessagesWithChat(id));
   };
 
   return (

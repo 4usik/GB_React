@@ -7,7 +7,7 @@ const initialState = {
 export const chatsReducer = (state = initialState, action) => {
     switch (action.type) {
         case ADD_CHAT:
-            const chatId = state.chatList[state.chatList.length-1].id+1;
+            const chatId = state.chatList[state.chatList.length-1]?.id+1 || 1;
             return {
                 ...state,
                 chatList: [

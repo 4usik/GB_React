@@ -1,5 +1,5 @@
 import { AUTHOR, BOT } from "../../../constants";
-import { ADD_MESSAGE, ADD_BOT_MESSAGE } from "../../../constants/addMessage";
+import { ADD_MESSAGE, ADD_BOT_MESSAGE, DEL_MESSAGES_WITH_CHAT } from "../../../constants/addMessage";
 
 const initialState = {
     messageList: {
@@ -51,6 +51,16 @@ export const messagesReducer = (state = initialState, action) => {
                         },
                     ],
                 },
+            };
+        };
+        case DEL_MESSAGES_WITH_CHAT: {
+            delete state.messageList["Chat"+action.chatId];
+            const currentList = state.messageList;
+            return {
+                ...state,
+                messageList: {
+                    ...currentList
+                }
             };
         };
              
