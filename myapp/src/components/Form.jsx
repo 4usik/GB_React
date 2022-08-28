@@ -1,13 +1,23 @@
 import React from "react";
 import { useState, useRef, useEffect } from "react";
 import { TextField, Button } from '@mui/material/';
+import { useDispatch } from "react-redux";
+import { addMessage } from "../constants/addMessage";
 
-export const Form = ({ onSendMessage }) => {
+export const Form = (props) => {
+
+    const {name} = props;
+
+    const dispatch = useDispatch();
 
     const [message, setMessage] = useState('');
 
     const handleChange = (event) => {
         setMessage(event.target.value);
+    }
+    const onAddMessage = () => {
+        dispatch(addMessage(name, message));
+        setMessage('');
     }
 
     const inputRef = useRef(null);
@@ -27,10 +37,7 @@ export const Form = ({ onSendMessage }) => {
                 value={message}
                 onChange={handleChange}
             />
-            <Button onClick={() => {
-                onSendMessage(message);
-                setMessage('');
-                }}
+            <Button onClick={onAddMessage}
                 sx={{
                     color: 'white',
                     fontSize: '25px'

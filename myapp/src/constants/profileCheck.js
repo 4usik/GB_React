@@ -1,2 +1,10 @@
-export const CHECKON_ACTION = 'CHECKON_ACTION';
-export const CHECKOFF_ACTION = 'CHECKOFF_ACTION';
+export const CHECK_ON = 'PROFILE::CHECK_ON';
+export const CHECK_OFF = 'PROFILE::CHECK_OFF';
+
+export const checkOn = {
+    type: CHECK_ON
+};
+
+export const checkOff = {
+    type: CHECK_OFF
+};

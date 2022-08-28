@@ -54,10 +54,16 @@
     right: 0;
     text-transform: uppercase;
     text-decoration: underline;
+    color: white;
+    font-size: 25px;
 }
 
 .checkbox {
     margin-top: 50px;
     width: 30px;
     height: 30px;
+}
+
+.checkboxText {
+    font-size: 35px;
 }
