@@ -1,4 +1,4 @@
-import { CHECK_ON, CHECK_OFF } from "../../../constants/profileCheck";
+import { CHECK_ON, CHECK_OFF } from "../../constants/profileCheck";
 
 const initialState = {
     checkBox: false,

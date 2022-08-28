@@ -1,4 +1,4 @@
-import { ADD_CHAT, DELETE_CHAT } from "../../../constants/addChat";
+import { ADD_CHAT, DELETE_CHAT } from "../../constants/addChat";
 
 const initialState = {
     chatList: [{id: 1, name: 'Chat1' }, {id: 2, name: 'Chat2' }],

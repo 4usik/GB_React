@@ -4,7 +4,7 @@ import { CheckBox } from "../components/ProfileChecked";
 
 export const Profile = () => {
     return (
-        <Box sx={{ minWidth: 360, position: 'absolute', top: '25%', left: '35%' }}>
+        <Box sx={{ minWidth: 360, position: 'absolute', top: '25%', left: '35%', display: 'flex', flexDirection: 'column', alignItems: 'center', color: '#1976d2'  }}>
             <Typography variant="h2" component="div" sx={{ flexGrow: 1 }}>
             PROFILE
             </Typography>

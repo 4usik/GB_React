@@ -15,7 +15,7 @@ export const Form = (props) => {
     const handleChange = (event) => {
         setMessage(event.target.value);
     }
-    const onClick = () => {
+    const onAddMessage = () => {
         dispatch(addMessage(name, message));
         setMessage('');
     }
@@ -37,7 +37,7 @@ export const Form = (props) => {
                 value={message}
                 onChange={handleChange}
             />
-            <Button onClick={onClick}
+            <Button onClick={onAddMessage}
                 sx={{
                     color: 'white',
                     fontSize: '25px'

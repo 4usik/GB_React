@@ -1,5 +1,5 @@
-import { AUTHOR, BOT } from "../../../constants";
-import { ADD_MESSAGE, ADD_BOT_MESSAGE, DEL_MESSAGES_WITH_CHAT } from "../../../constants/addMessage";
+import { AUTHOR, BOT } from "../../constants";
+import { ADD_MESSAGE, ADD_BOT_MESSAGE, DEL_MESSAGES_WITH_CHAT } from "../../constants/addMessage";
 
 const initialState = {
     messageList: {

@@ -23,7 +23,7 @@ export function ChatList() {
   };
 
   return (
-    <Box sx={{ maxWidth: 360, position: 'absolute', top: '70px', left: '20px' }}>
+    <Box sx={{ maxWidth: 360, position: 'absolute', top: '70px', left: '20px', fontSize: '30px',  }}>
       <nav aria-label="main mailbox folders">
           <List>
             {chats.map((chat) =>
@@ -33,7 +33,7 @@ export function ChatList() {
               </ListItem>
               )}
           </List>
-          <Button onClick={handleChange}>Add Chat</Button>
+          <Button sx={{marginLeft: '25px'}} onClick={handleChange}>Add Chat</Button>
       </nav>
     </Box>)
 }

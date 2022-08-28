@@ -2,6 +2,7 @@ import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { checkOn, checkOff } from "../constants/profileCheck";
 import { getProfile } from "../store/selectors/profile";
+import './style.css';
 
 export const CheckBox  = () => {
 
@@ -15,7 +16,7 @@ export const CheckBox  = () => {
     return (
         <>
             <input type={'checkbox'} className="checkbox" checked={profile.checkBox} value={profile.checkBox} onChange={handleChange} />
-            <div>{profile.text}</div>
+            <div className="checkboxText">{profile.text}</div>
         </>
     )
 }
