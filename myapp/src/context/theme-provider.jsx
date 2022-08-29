@@ -2,7 +2,7 @@ import React, {createContext, useCallback, useState, useMemo} from 'react';
 import { createTheme, ThemeProvider as MUIThemeProvider } from '@mui/material';
 import { deepmerge } from '@mui/utils';
 
-export const ColorModeServicesContext = createContext(undefined);
+export const ColorModeServicesContext = createContext();
 
 export const ThemeProvider = ({ initialTheme = {}, initialMode = 'light', children }) => {
     const [mode, setMode] = useState(initialMode);

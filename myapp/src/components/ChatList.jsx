@@ -3,24 +3,8 @@ import { Link } from 'react-router-dom';
 import { Box, Button, List, ListItem } from '@mui/material';
 import DeleteIcon from '@mui/icons-material/Delete';
 import '../components/style.css';
-import { useDispatch, useSelector } from "react-redux";
-import { addChat, deleteChat } from "../constants/addChat";
-import { deleteMessagesWithChat } from "../constants/addMessage";
-import { getChatList } from "../store/selectors/chats";
 
-export function ChatList() {
-  const dispatch = useDispatch();
-  const chats = useSelector(getChatList);
-
-  const handleChange = () => {
-    dispatch(addChat());
-  };
-
-  const delChat = (e) => {
-    const id = e.currentTarget.id;
-    dispatch(deleteChat(id));
-    dispatch(deleteMessagesWithChat(id));
-  };
+export function ChatList({ chats, handleChange, delChat }) {
 
   return (
     <Box sx={{ maxWidth: 360, position: 'absolute', top: '70px', left: '20px', fontSize: '30px',  }}>

@@ -1,31 +1,8 @@
 import React from "react";
-import { useState, useRef, useEffect } from "react";
 import { TextField, Button } from '@mui/material/';
-import { useDispatch } from "react-redux";
-import { addMessage } from "../constants/addMessage";
 
-export const Form = (props) => {
+export const Form = ({ inputRef, message, handleChange, onAddMessage }) => {
 
-    const {name} = props;
-
-    const dispatch = useDispatch();
-
-    const [message, setMessage] = useState('');
-
-    const handleChange = (event) => {
-        setMessage(event.target.value);
-    }
-    const onAddMessage = () => {
-        dispatch(addMessage(name, message));
-        setMessage('');
-    }
-
-    const inputRef = useRef(null);
-
-    useEffect(() => {
-        inputRef.current?.focus();
-    }, [message]);
-    
     return(
         <div className="form">
             <TextField
