@@ -10,6 +10,7 @@ import { Homepage } from './pages/home-page';
 import { Profile } from './pages/profile-page';
 import { Chats } from './pages/chats-page';
 import { Chat } from './components/chatContainer';
+import { GistsList } from './pages/gists-page';
 import { PageNotFound } from './pages/page-not-found';
 import { getChatList } from './store/selectors/chats';
 import { useSelector } from 'react-redux';
@@ -36,6 +37,8 @@ function App() {
                 <Route exact path="/chats/" > <Chats /> </Route>
 
                 <Route exact path="/" component={Homepage} />
+                
+                <Route exact path="/gists" component={GistsList} />
 
                 <Route
                   path="/:name?"

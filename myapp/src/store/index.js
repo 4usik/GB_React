@@ -5,6 +5,7 @@ import { messagesReducer } from "../reducers/messages/addMessage";
 import { botAnswer } from "../middleware";
 import { persistStore, persistReducer } from "redux-persist";
 import storage from "redux-persist/lib/storage";
+// import { gistsReducer } from "../reducers/gists/getGists";
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
@@ -17,6 +18,7 @@ const rootReducer = combineReducers({
         chats: chatsReducer,
         profile: profileReducer,
         messages: messagesReducer,
+        // gists: gistsReducer
     });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);

@@ -20,6 +20,9 @@ export const NavbarPanel = () => {
             <Button>
               <Link to="/chats" className='link'>Chats</Link>
             </Button>
+            <Button>
+              <Link to="/gists" className='link'>Gists</Link>
+            </Button>
             <Typography variant="h5" component="div" sx={{ flexGrow: 1 }}>
               NameSurname
             </Typography>
