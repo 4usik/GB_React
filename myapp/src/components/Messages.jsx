@@ -1,5 +1,5 @@
 import React from "react";
-import { Message } from "./Message";
+import { Message } from "./Message/Message";
 import '../components/style.css';
 
 export const Messages = ({ name, chat }) => {

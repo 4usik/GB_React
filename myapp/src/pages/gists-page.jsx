@@ -51,7 +51,7 @@ export const GistsList = () => {
     const [error, setError] = useState(false);
     const [loading, setLoading] = useState(false);
 
-    console.log(gists);
+    // console.log(gists);
 
     const requestGists = async () => {
         setLoading(true);

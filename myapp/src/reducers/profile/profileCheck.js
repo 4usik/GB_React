@@ -1,8 +1,9 @@
-import { CHECK_ON, CHECK_OFF } from "../../constants/profileCheck";
+import { CHECK_ON, CHECK_OFF, ADD_NAME } from "../../constants/profileCheck";
 
 const initialState = {
     checkBox: false,
-    text: "Off"
+    text: "Off",
+    name: 'USER'
 };
 
 export const profileReducer = (state = initialState, action) => {
@@ -11,6 +12,8 @@ export const profileReducer = (state = initialState, action) => {
             return { ...state, checkBox: !state.checkBox, text: "Off"};
         case CHECK_ON:
             return { ...state, checkBox: !state.checkBox, text: "On"};
+        case ADD_NAME:
+            return {...state, name: action.payload}
         default:
             return state;
     }

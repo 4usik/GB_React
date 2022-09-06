@@ -13,6 +13,7 @@ export const FormContainer = ({ name }) => {
     const handleChange = (event) => {
         setMessage(event.target.value);
     }
+
     const onAddMessage = () => {
         dispatch(addMessage(name, message));
         setMessage('');

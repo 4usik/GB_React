@@ -8,6 +8,7 @@ import { Divider, Typography, Link } from "@mui/material";
 import { usePrevious } from "../hooks";
 import { fetchSignInAction } from "../slices/userSlice";
 import { REGISTRATION_ROUTE } from "../constants/path";
+import { HOME_ROUTE } from "../constants/path";
 
 const SignInForm = withFormik({
     mapPropsToValues: () => ({ email: '', password: ''}),
@@ -25,11 +26,11 @@ export const SignIn = () => {
         dispatch(fetchSignInAction(authParams));
     }
 
-    // useEffect(() => {
-    //     if(user.token && !prevUserValue.token) {
-    //         history.push();
-    //     }
-    // }, [user, history, prevUserValue]);
+    useEffect(() => {
+        if(user.token && !prevUserValue.token) {
+            history.push(HOME_ROUTE);
+        }
+    }, [user, history, prevUserValue]);
 
     return (
         <Fragment>

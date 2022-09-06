@@ -1,12 +1,12 @@
-import { Fragment } from "react"
-import { useDispatch } from "react-redux"
-import { Link as RouteLink, useHistory } from "react-router-dom";
+import { Fragment } from "react";
+import { useDispatch } from "react-redux";
+import { withFormik } from "formik";
+import { Typography, Link, Divider } from "@mui/material";
+import { useHistory, Link as RouteLink } from "react-router-dom";
+
 import { SIGN_IN_ROUTE } from "../constants/path";
 import { setError } from "../slices/errorSlice";
 import { fetchUserRegistration } from "../firebase-auth";
-import { Divider, Typography, Link } from "@mui/material";
-// import { RegistrationForm } from "../components/registration-form/registration-form";
-import { withFormik } from "formik";
 import { AuthForm } from "../components/auth-form/auth-form";
 
 const RegistrationForm = withFormik({
@@ -19,7 +19,7 @@ export const Registration = () => {
     const dispatch = useDispatch();
     const history = useHistory();
 
-    const handleRegistration = async(authParams) => {
+    const handleRegistration = async (authParams) => {
         try {
             await fetchUserRegistration(authParams);
             history.push(SIGN_IN_ROUTE);
