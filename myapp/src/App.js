@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 import {NavbarPanel} from './components/navbar';
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
 import { ThemeProvider } from './context/theme-provider';
 import { Box, CssBaseline } from '@mui/material';
 import './components/style.css';
@@ -14,6 +14,10 @@ import { GistsList } from './pages/gists-page';
 import { PageNotFound } from './pages/page-not-found';
 import { getChatList } from './store/selectors/chats';
 import { useSelector } from 'react-redux';
+import { withAuth } from './hocs/withAuth';
+import { CHATS_ROUTE, GISTS_ROUTE, HOME_ROUTE, PROFILE_ROUTE, REGISTRATION_ROUTE, SIGN_IN_ROUTE } from './constants/path';
+import { SignIn } from './pages/sign-in';
+import { Registration } from './pages/registration';
 
 function App() {
 
@@ -27,18 +31,19 @@ function App() {
             <Box>
               <div className="App">
                 <NavbarPanel />
-              </div>
-            </Box>
-          
-            <Switch>
+                <Switch>
 
-                <Route exact path="/profile/" component={Profile} />
+                <Route exact path={SIGN_IN_ROUTE} component={SignIn} />
 
-                <Route exact path="/chats/" > <Chats /> </Route>
+                <Route exact path={REGISTRATION_ROUTE} component={Registration} />
 
-                <Route exact path="/" component={Homepage} />
+                <Route exact path={PROFILE_ROUTE} component={withAuth(Profile)} />
+
+                <Route exact path={CHATS_ROUTE} component={withAuth(Chats)} />
+
+                <Route exact path={HOME_ROUTE} component={withAuth(Homepage)} />
                 
-                <Route exact path="/gists" component={GistsList} />
+                <Route exact path={GISTS_ROUTE} component={GistsList} />
 
                 <Route
                   path="/:name?"
@@ -52,7 +57,13 @@ function App() {
                   }}
                 />
 
+                <Redirect to={SIGN_IN_ROUTE} />
+
               </Switch>
+              </div>
+            </Box>
+          
+            
             </ThemeProvider>
       </BrowserRouter>
     
