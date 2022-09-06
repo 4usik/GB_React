@@ -6,8 +6,8 @@ import {
 
 
 export const fetchUserRegistration = async ({ email, password }) => {
-    /* console.log("process.env.REACT_APP_APIKEY", process.env.REACT_APP_APIKEY);
-    console.log(process.env); */
+    console.log("process.env.REACT_APP_APIKEY", process.env.REACT_APP_APIKEY);
+    console.log(process.env);
     const auth = getAuth();
     const userCredential = await createUserWithEmailAndPassword(auth, email, password);
     return userCredential.user;
