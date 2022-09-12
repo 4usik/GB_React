@@ -6,8 +6,8 @@ import { ColorModeSwitch } from './color-mode-switch';
 import { useSelector } from 'react-redux';
 import { getProfile } from '../store/selectors/profile';
 
-
 export const NavbarPanel = () => {
+
   const profile = useSelector(getProfile);
 
   return (
@@ -27,7 +27,7 @@ export const NavbarPanel = () => {
               <Link to="/gists" className='link'>Gists</Link>
             </Button>
             <Typography variant="h5" component="div" sx={{ flexGrow: 1 }}>
-              USER
+              {profile.name}
             </Typography>
             <ColorModeSwitch />
           </Toolbar>

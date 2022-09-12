@@ -1,31 +1,31 @@
 import React, { useEffect } from "react";
 import '../components/style.css';
 import { useDispatch, useSelector } from "react-redux";
-import { addChat, deleteChat } from "../constants/addChat";
+import { addChat, deleteChat, DBAddChat } from "../constants/addChat";
 import { deleteMessagesWithChat } from "../constants/addMessage";
 import { getChatList } from "../store/selectors/chats";
 import { ChatList } from "./ChatList";
-import { setListenerDB, writeChatData } from "../firebase-db-utils";
-import { getMessagesList } from "../store/selectors/messages";
+import { setListenerDBChats } from "../firebase-db-utils";
+import { getUser } from "../store/selectors/users";
 
 export function ChatListContainer() {
   const dispatch = useDispatch();
-  const chats = useSelector(getChatList);
-  const messagesList = useSelector(getMessagesList);
+  const chats = [...useSelector(getChatList)];
+  const userId = useSelector(getUser).uid;
 
   useEffect(() => {
-    writeChatData(chats, messagesList);
-    setListenerDB();
-  }, [chats, messagesList]);
+    if (setListenerDBChats() && chats.length === 0) {
+      dispatch(DBAddChat(setListenerDBChats()));
+    }
+  });
 
   const handleChange = () => {
-    dispatch(addChat());
+    dispatch(addChat(userId));
   };
 
   const delChat = (e) => {
     const id = e.currentTarget.id;
-    console.log(id);
-    dispatch(deleteChat(id));
+    dispatch(deleteChat(id, userId));
     dispatch(deleteMessagesWithChat(id));
   };
 

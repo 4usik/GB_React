@@ -23,6 +23,7 @@ export const Registration = () => {
         try {
             await fetchUserRegistration(authParams);
             history.push(SIGN_IN_ROUTE);
+
         } catch(error) {
             dispatch(setError(error.message));
         }

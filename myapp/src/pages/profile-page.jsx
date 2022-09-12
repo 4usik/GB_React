@@ -3,16 +3,26 @@ import { Box, Typography, TextField, Button } from '@mui/material';
 import { CheckBox } from "../components/ProfileChecked";
 import { useDispatch, useSelector } from "react-redux";
 import { addName } from "../constants/profileCheck";
-import { getProfile } from "../store/selectors/profile";
 import { getUser } from "../store/selectors/users";
-import { writeUserData } from "../firebase-db-utils";
+import { setListenerDBUser, writeUserData } from "../firebase-db-utils";
+import { getProfile } from "../store/selectors/profile";
 
 export const Profile = () => {
 
     const dispatch = useDispatch();
-    const profile = useSelector(getProfile);
     const user = useSelector(getUser);
-    console.log(user);
+    const profile = useSelector(getProfile);
+    
+    useEffect(() => {
+        if (setListenerDBUser() !== undefined) {
+            const loginedUser = Object.values(setListenerDBUser());
+
+            let userName = loginedUser.filter((item) => item.id === user.uid)[0].username;
+            if (profile.name === 'USER') {
+                dispatch(addName(userName));
+            }
+        }
+    });
     
     const [name, setName] = useState('');
 
@@ -40,7 +50,7 @@ export const Profile = () => {
                 sx={{
                     '& > :not(style)': { m: 1, width: '49ch', color: 'white', fontSize: '25px', textAlign: 'left' },  
                 }}
-                label="Введите имя"
+                label="Введите свое имя"
                 value={name}
                 onChange={handleChange}
             />

@@ -1,4 +1,5 @@
-import { ADD_CHAT, DELETE_CHAT } from "../../constants/addChat";
+import { ADD_CHAT, DELETE_CHAT, ADD_DBCHAT } from "../../constants/addChat";
+import { removeChatData, writeChatData } from "../../firebase-db-utils";
 
 const initialState = {
     chatList: [],
@@ -7,22 +8,39 @@ const initialState = {
 export const chatsReducer = (state = initialState, action) => {
     switch (action.type) {
         case ADD_CHAT:
-            const chatId = state.chatList[state.chatList.length-1]?.id+1 || 1;
+            const chatId = crypto.randomUUID();
+            const id = state.chatList.length+1
+            writeChatData(chatId, id, action.userId);
             return {
                 ...state,
                 chatList: [
                     ...state.chatList,
                     {
                         id: chatId,
-                        name: `Chat${chatId}`,
+                        name: `Chat${id}`,
                     }
                 ]
             };
 
-        case DELETE_CHAT:
+        case ADD_DBCHAT:
+            let currentListChats = [];
+            if (action.data) {
+                Object.values(action.data).forEach((item, i) => {
+                    currentListChats[i] = item;
+                });
+            }
             return {
                 ...state,
-                chatList: [...state.chatList.filter((item) => item.id !== +action.id)],
+                chatList: [
+                    ...currentListChats
+                ]
+            };
+
+        case DELETE_CHAT:
+            removeChatData(action.id);
+            return {
+                ...state,
+                chatList: [...state.chatList.filter((item) => item.id !== action.id)],
             };
 
         default:
