@@ -1,5 +1,5 @@
 import React from "react";
-import { Message } from "./Message";
+import { Message } from "./Message/Message";
 import '../components/style.css';
 
 export const Messages = ({ name, chat }) => {
@@ -10,7 +10,7 @@ export const Messages = ({ name, chat }) => {
         <div className="messagesList">
             <div className="chatName">{name}</div>
             {
-                chat.map((message) => <Message key={message.id} {...message} />)
+                chat?.map((message) => <Message key={message.id} {...message} />)
             }
         </div>
     </>

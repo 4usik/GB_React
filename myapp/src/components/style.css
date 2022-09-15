@@ -103,3 +103,7 @@ li {
     top: 80px;
     left: 25px;
 }
+
+.hide {
+    display: none;
+}

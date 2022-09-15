@@ -36,9 +36,8 @@ const userSlice = createSlice({
     },
     extraReducers: {
         [fetchSignInAction.fulfilled]: (state, action) => {
-            console.log(action);
             state.token = action.payload.accessToken;
-            state.id = action.payload.uid;
+            state.uid = action.payload.uid;
             state.email = action.payload.email;
         }
     }

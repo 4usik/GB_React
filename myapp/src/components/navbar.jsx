@@ -3,9 +3,12 @@ import {AppBar, Button, Box, Toolbar, Typography } from '@mui/material';
 import { Link } from 'react-router-dom';
 import '../components/style.css';
 import { ColorModeSwitch } from './color-mode-switch';
-
+import { useSelector } from 'react-redux';
+import { getProfile } from '../store/selectors/profile';
 
 export const NavbarPanel = () => {
+
+  const profile = useSelector(getProfile);
 
   return (
     <Box sx={{ flexGrow: 1, minWidth: '100%' }}>
@@ -24,7 +27,7 @@ export const NavbarPanel = () => {
               <Link to="/gists" className='link'>Gists</Link>
             </Button>
             <Typography variant="h5" component="div" sx={{ flexGrow: 1 }}>
-              NameSurname
+              {profile.name}
             </Typography>
             <ColorModeSwitch />
           </Toolbar>

@@ -1,6 +1,5 @@
 import { ADD_MESSAGE } from "../constants/addMessage";
 import { addBotMessage } from "../constants/addMessage";
-import { GET_GISTS_SUCCESS } from "../constants/getGists";
 
 export const botAnswer = (store) => (next) => (action) => {
 
@@ -10,7 +9,9 @@ export const botAnswer = (store) => (next) => (action) => {
 
     if (action.type === ADD_MESSAGE) {
         clearTimeout(timer);
-        timer = setTimeout(() => store.dispatch(addBotMessage(chatId)), 2500);
+        timer = setTimeout(() => {
+            store.dispatch(addBotMessage(chatId));
+            }, 500);
     }
 
     return res;

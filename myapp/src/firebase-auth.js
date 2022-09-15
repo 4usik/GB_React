@@ -1,13 +1,11 @@
-import {
-    getAuth,
+import { 
+    getAuth, 
     createUserWithEmailAndPassword,
-    signInWithEmailAndPassword
+    signInWithEmailAndPassword 
 } from "firebase/auth";
 
 
-export const fetchUserRegistration = async ({ email, password }) => {
-    /* console.log("process.env.REACT_APP_APIKEY", process.env.REACT_APP_APIKEY);
-    console.log(process.env); */
+export const fetchUserRegistration = async ({email, password}) => {
     const auth = getAuth();
     const userCredential = await createUserWithEmailAndPassword(auth, email, password);
     return userCredential.user;
