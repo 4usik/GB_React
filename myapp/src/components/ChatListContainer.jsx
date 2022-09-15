@@ -14,8 +14,8 @@ export function ChatListContainer() {
   const userId = useSelector(getUser).uid;
 
   useEffect(() => {
-    if (setListenerDBChats() && chats.length === 0) {
-      dispatch(DBAddChat(setListenerDBChats()));
+    if (setListenerDBChats(userId) && chats.length === 0) {
+      dispatch(DBAddChat(setListenerDBChats(userId)));
     }
   });
 

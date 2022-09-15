@@ -10,7 +10,7 @@ export const Messages = ({ name, chat }) => {
         <div className="messagesList">
             <div className="chatName">{name}</div>
             {
-                chat.map((message) => <Message key={message.id} {...message} />)
+                chat?.map((message) => <Message key={message.id} {...message} />)
             }
         </div>
     </>

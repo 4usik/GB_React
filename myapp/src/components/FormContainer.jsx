@@ -15,8 +15,8 @@ export const FormContainer = ({ name }) => {
     const messagesList = useSelector(getMessagesList);
 
     useEffect(() => {
-        if (setListenerDBMessages(id) && messagesList[id] === undefined) {
-          dispatch(DBAddMessages(userId, id, setListenerDBMessages(id)));
+        if (setListenerDBMessages(id, userId) && messagesList[id] === undefined) {
+            dispatch(DBAddMessages(userId, id, setListenerDBMessages(id, userId)));
         }
     });
 

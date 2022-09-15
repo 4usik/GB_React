@@ -4,22 +4,29 @@ import { CheckBox } from "../components/ProfileChecked";
 import { useDispatch, useSelector } from "react-redux";
 import { addName } from "../constants/profileCheck";
 import { getUser } from "../store/selectors/users";
-import { setListenerDBUser, writeUserData } from "../firebase-db-utils";
+import { setListenerDBUser, updateUserName, writeUserData } from "../firebase-db-utils";
 import { getProfile } from "../store/selectors/profile";
 
 export const Profile = () => {
 
     const dispatch = useDispatch();
     const user = useSelector(getUser);
-    const profile = useSelector(getProfile);
     
-    useEffect(() => {
-        if (setListenerDBUser() !== undefined) {
-            const loginedUser = Object.values(setListenerDBUser());
+    const profile = useSelector(getProfile);
 
-            let userName = loginedUser.filter((item) => item.id === user.uid)[0].username;
-            if (profile.name === 'USER') {
-                dispatch(addName(userName));
+    useEffect(() => {
+        
+        if (setListenerDBUser()) {
+            const loginedUser = Object.values(setListenerDBUser());
+            const userKeys = Object.keys(setListenerDBUser());
+
+            if (!userKeys.includes(user.uid)) {
+                writeUserData(user.uid, 'USER', user.email);
+            } else if (userKeys.includes(user.uid) && profile.name === 'USER') {
+                let userName = loginedUser.filter((item) => item.id === user.uid)[0].username;
+                if (userName !== 'USER') {
+                    dispatch(addName(userName));
+                }
             }
         }
     });
@@ -31,7 +38,7 @@ export const Profile = () => {
     }
     const onAddName = () => {
         dispatch(addName(name));
-        writeUserData(user.uid, name, user.email);
+        updateUserName(user.uid, name);
         setName('');
     }
 

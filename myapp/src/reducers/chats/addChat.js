@@ -9,7 +9,7 @@ export const chatsReducer = (state = initialState, action) => {
     switch (action.type) {
         case ADD_CHAT:
             const chatId = crypto.randomUUID();
-            const id = state.chatList.length+1
+            const id = state.chatList.length+1;
             writeChatData(chatId, id, action.userId);
             return {
                 ...state,

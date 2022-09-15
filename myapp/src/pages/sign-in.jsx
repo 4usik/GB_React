@@ -22,8 +22,15 @@ export const SignIn = () => {
     const user = useSelector(getUser);
     const prevUserValue = usePrevious(user);
 
+
     const handleSignIn = (authParams) => {
         dispatch(fetchSignInAction(authParams));
+        // console.log(getDataUser(setListenerDBUser));
+
+        // if (Object.keys(setListenerDBUser()).includes(user.uid)) {
+        //     // writeUserData(user.uid, 'USER1', user.email);
+        //     console.log('Yes');
+        // }
     }
 
     useEffect(() => {

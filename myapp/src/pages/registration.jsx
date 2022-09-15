@@ -3,7 +3,6 @@ import { useDispatch } from "react-redux";
 import { withFormik } from "formik";
 import { Typography, Link, Divider } from "@mui/material";
 import { useHistory, Link as RouteLink } from "react-router-dom";
-
 import { SIGN_IN_ROUTE } from "../constants/path";
 import { setError } from "../slices/errorSlice";
 import { fetchUserRegistration } from "../firebase-auth";

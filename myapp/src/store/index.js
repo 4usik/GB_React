@@ -7,7 +7,6 @@ import { configureStore } from "@reduxjs/toolkit";
 import userReducers from "../slices/userSlice";
 import errorReducers from "../slices/errorSlice";
 
-
 export const store = configureStore({
     reducer: {
         chats: chatsReducer,
