@@ -8,8 +8,8 @@ const initialState = {
 export const chatsReducer = (state = initialState, action) => {
     switch (action.type) {
         case ADD_CHAT:
-            const chatId = crypto.randomUUID();
             const id = state.chatList.length+1;
+            const chatId = `Chat${id}_${crypto.randomUUID()}`;
             writeChatData(chatId, id, action.userId);
             return {
                 ...state,
@@ -37,7 +37,7 @@ export const chatsReducer = (state = initialState, action) => {
             };
 
         case DELETE_CHAT:
-            removeChatData(action.id);
+            removeChatData(action.id, action.userId);
             return {
                 ...state,
                 chatList: [...state.chatList.filter((item) => item.id !== action.id)],

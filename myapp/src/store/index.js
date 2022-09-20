@@ -1,9 +1,10 @@
-import { chatsReducer } from "../reducers/chats/addChat";
+// import chatsReducer from "../reducers/chats";
 import { profileReducer } from "../reducers/profile/profileCheck";
 import { messagesReducer } from "../reducers/messages/addMessage";
 import { botAnswer } from "../middleware";
 import { gistsReducer } from "../reducers/gists/getGists";
 import { configureStore } from "@reduxjs/toolkit";
+import { chatsReducer } from "../reducers/chats/addChat";
 import userReducers from "../slices/userSlice";
 import errorReducers from "../slices/errorSlice";
 
