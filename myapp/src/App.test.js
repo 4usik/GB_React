@@ -1,8 +1,16 @@
 import { render, screen } from '@testing-library/react';
 import App from './App';
+import * as reduxHooks from 'react-redux';
 
-test('renders learn react link', () => {
-  render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+jest.mock('react-redux');
+
+it('should create App', () => {
+  jest.spyOn(reduxHooks, 'useSelector').mockReturnValue([]);
+  
+  const view = render(<App />);
+
+  expect(view).toMatchSnapshot();
+
+  // screen.debug();
+
 });

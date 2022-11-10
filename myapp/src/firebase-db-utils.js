@@ -23,9 +23,9 @@ export const writeChatData = (chatId, id, userId) => {
     });
 }
 
-export const removeChatData = (chatId) => {
+export const removeChatData = (chatId, userId) => {
     const db = getDatabase();
-    remove(ref(db, `chats/` + chatId), {chatId});
+    remove(ref(db, 'users/' + userId + 'chats/' + chatId), {chatId});
 }
 
 export const writeMessagesData = (chatId, message, messId, userId) => {
